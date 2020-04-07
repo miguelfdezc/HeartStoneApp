@@ -6,3 +6,8 @@
     <h2 [ngClass]="{'selected': clicado}">{{myCardDeck.name}}</h2>
   </ion-label>
 </ion-item>
+<div *ngIf="clicado">
+  <ion-label *ngFor="let card of myCardDeck.cards">
+    <h3 class="mx-auto">{{card}}</h3>
+  </ion-label>
+</div>
