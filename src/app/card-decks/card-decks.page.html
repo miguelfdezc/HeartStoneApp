@@ -4,17 +4,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-list-header>
-    <ion-label>Classes</ion-label>
-  </ion-list-header>
+<ion-content>
+
   <ion-list>
-    <app-card-deck *ngFor="let cardDeck of cardDecks" [myCardDeck]="cardDeck" (clicked)="select($event)">
-    </app-card-deck>
+    <app-card-list *ngFor="let cardDeck of cardDecks"
+    [listName]="cardDeck.name"
+    [items]="cardDeck.types"  
+    ></app-card-list>
   </ion-list>
 
-  <p>
-    Selected Card decks:
-    <span *ngFor="let name of selectedCDs">{{name}}&nbsp;</span>
-  </p>
 </ion-content>
