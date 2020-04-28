@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inicio de sesión</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form *ngIf="!login" [formGroup]="miForm">
+    <ion-item no-padding class="animated faceInUp">
+      <ion-label for="email" position="floating">
+        <ion-icon name="mail" item-start></ion-icon>
+        Tu correo
+      </ion-label>
+      <ion-input color="secondary" type="text"
+      formControlName="email" id="email"></ion-input>
+    </ion-item>
+    <p ion-text class="text08"
+    *ngIf="miForm.get('email').touched && miForm.get('email').hasError('required')">
+      <ion-text color="warning">Obligatorio!</ion-text>
+    </p>
+    <ion-item no-padding class="animated faceInUp">
+      <ion-label position="floating">
+        <ion-icon for="email" name="lock-closed" item-start></ion-icon>
+        Tu contraseña
+      </ion-label>
+      <ion-input color="secondary" type="password"
+      formControlName="password" id="password"></ion-input>
+    </ion-item>
+    <p ion-text class="text08"
+    *ngIf="miForm.get('password').touched && miForm.get('password').hasError('email')">
+      <ion-text color="warning">No válido!</ion-text>
+    </p>
+    <div>
+      <ion-button icon-left size="medium" expand="full" shape="round" color="dark"
+      (click)="doLogin()" [disabled]="!miForm.valid" tappable>
+      <ion-icon name="log-in"></ion-icon>
+      Entrar
+    </ion-button>
+    </div>
+  </form>
+  <ion-card *ngIf="login">
+    <ion-card-header *ngIf="login">
+      <ion-card-title>
+        Login enviado!
+      </ion-card-title>
+    </ion-card-header>
+  
+    <ion-card-content *ngIf="login" style="color: #75CEFF;">
+        <b>Email: </b>{{miForm.value.email}}<br>
+        <b>Clave: </b>{{miForm.value.password}}
+    </ion-card-content>
+  </ion-card>
+</ion-content>
