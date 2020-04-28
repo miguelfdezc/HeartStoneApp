@@ -8,7 +8,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginPage {
   miForm: any;
-  login = false;
+  login: boolean = false;
 
   constructor(private fb: FormBuilder) {
     this.miForm = this.fb.group({

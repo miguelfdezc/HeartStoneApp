@@ -11,12 +11,16 @@
         <ion-icon name="mail" item-start></ion-icon>
         Tu correo
       </ion-label>
-      <ion-input color="secondary" type="text"
+      <ion-input color="secondary" type="email"
       formControlName="email" id="email"></ion-input>
     </ion-item>
     <p ion-text class="text08"
     *ngIf="miForm.get('email').touched && miForm.get('email').hasError('required')">
-      <ion-text color="warning">Obligatorio!</ion-text>
+      <ion-text color="warning">¡Obligatorio!</ion-text>
+    </p>
+    <p ion-text class="text08"
+    *ngIf="miForm.get('email').touched && miForm.get('email').hasError('email')">
+      <ion-text color="warning">¡No es un email válido!</ion-text>
     </p>
     <ion-item no-padding class="animated faceInUp">
       <ion-label position="floating">
@@ -27,8 +31,12 @@
       formControlName="password" id="password"></ion-input>
     </ion-item>
     <p ion-text class="text08"
-    *ngIf="miForm.get('password').touched && miForm.get('password').hasError('email')">
-      <ion-text color="warning">No válido!</ion-text>
+    *ngIf="miForm.get('password').touched && miForm.get('password').hasError('required')">
+      <ion-text color="warning">¡Obligatorio!</ion-text>
+    </p>
+    <p ion-text class="text08"
+    *ngIf="miForm.get('password').touched && miForm.get('password').hasError('minlength')">
+      <ion-text color="warning">¡No válido, mínimo 6 caracteres!</ion-text>
     </p>
     <div>
       <ion-button icon-left size="medium" expand="full" shape="round" color="dark"
