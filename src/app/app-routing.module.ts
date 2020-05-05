@@ -11,7 +11,7 @@ const routes: Routes = [
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
   },
   {
-    path: 'card-decks',
+    path: 'cards',
     loadChildren: () => import('./card-decks/card-decks.module').then( m => m.CardDecksPageModule)
   },
   {

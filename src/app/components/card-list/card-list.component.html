@@ -2,7 +2,7 @@
   <ion-list-header>
     <ion-label>{{listName}}</ion-label>
   </ion-list-header>
-  <ion-item *ngFor="let item of items">
+  <ion-item [href]="generateURL(listName, item)" *ngFor="let item of items">
     <ion-avatar slot="start">
       <img [src]="'assets/images/' + item + '.png'">
     </ion-avatar>

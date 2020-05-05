@@ -7,11 +7,17 @@ const routes: Routes = [
   {
     path: '',
     component: CardDecksPage
+  },
+  {
+    path: 'card-listing/:cardDeckGroup/:cardDeck',
+    loadChildren: () => import('../card-listing/card-listing.module').then( m => m.CardListingPageModule)
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
+  imports: [
+    RouterModule.forChild(routes)
+  ],
   exports: [RouterModule],
 })
 export class CardDecksPageRoutingModule {}

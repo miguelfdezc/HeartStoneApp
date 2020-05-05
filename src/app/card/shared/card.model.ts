@@ -1,4 +1,4 @@
 export interface CardDeck {
-    name: string;
-    types:string[];
+    name: string,
+    types: string
 }
